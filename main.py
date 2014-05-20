@@ -40,7 +40,8 @@ class ProcessTransactions(MainHandler):
   def post(self):
     transactionSuccessful = makeTrans()
     if(transactionSuccessful):
-      clientId = self.request.get('clientId')
+      clientId = self.request.get('clientId', '')
+      productId = self.request.get('productId')
       if(clientId == ''):
         clientId = str(uuid.uuid4())
         cd4 = 'server side'
