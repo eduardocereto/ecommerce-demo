@@ -48,14 +48,15 @@ class ProcessTransactions(MainHandler):
         cd4 = 'analytics.js'
       ip = self.request.remote_addr
       userAgent = str(self.request.headers['User-Agent'])
-      params = dict(v = '1', 
-              tid = GA_WEBPROPERTY,
-              cid = clientId,
-              uip = ip,
-              ua = userAgent,
-              dp = '/transaction-successful',
-              cd4 = cd4
-              )
+      params = dict(v = '1',
+                    t = 'pageview'
+                    tid = GA_WEBPROPERTY,
+                    cid = clientId,
+                    uip = ip,
+                    ua = userAgent,
+                    dp = '/transaction-successful',
+                    cd4 = cd4
+                )
       sendMeasurementProtocolHit(params)
 
 app = webapp2.WSGIApplication([
